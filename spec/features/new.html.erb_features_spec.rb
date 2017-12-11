@@ -34,6 +34,10 @@ RSpec.describe "restaurants/new.html.erb" do
     it 'has a max price field for price range' do
       expect(page).to have_field(:type => 'text', :name => 'restaurant[max_price]')
     end
+
+    it 'has a category field' do
+      expect(page).to have_field(:type => 'text', :name => 'restaurant[category]')
+    end
   end
 
 end
