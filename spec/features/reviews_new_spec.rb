@@ -21,4 +21,12 @@ feature 'Post a Review' do
   scenario 'Filling in the rating' do
     expect(page).to have_field(id: 'review_rating_1')
   end
+
+  scenario 'Fill in Review Textarea' do
+    expect(page).to have_field(type: 'textarea', name: 'review[comments]')
+  end
+
+  scenario 'Has submit button' do
+    expect(page).to have_button('Submit')
+  end
 end

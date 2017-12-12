@@ -27,6 +27,15 @@
     <%= form.label "5" %>
     <%= radio_button("review", "rating", "5") %>
   </p>
+  <p>
+    <%= form.label :comments %>
+  </p>
+  <p>
+    <%= form.text_area :comments %>
+  </p>
+  <p>
+    <%= form.submit 'Submit' %>
+  </p>
   <% end %>
   </body>
 </html>
