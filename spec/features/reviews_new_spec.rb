@@ -29,4 +29,13 @@ feature 'Post a Review' do
   scenario 'Has submit button' do
     expect(page).to have_button('Submit')
   end
+
+  scenario 'filling in form and submitting creates a new Review' do
+    fill_in('review[author]', with: 'Lewis')
+    fill_in('review[email]', with: 'lewis@twin.com')
+    choose(id: 'review_rating_1')
+    fill_in('review[comments]', with: 'Great restaurant')
+    click_button('Submit')
+    expect(Review.all.length).to eq(1)
+  end
 end
