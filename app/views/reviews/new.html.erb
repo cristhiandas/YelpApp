@@ -7,7 +7,7 @@
   <body>
     <h1>Post a Review</h1>
 
-  <%= form_with scope: :review, local: true do |form| %>
+  <%= form_with scope: :review, url: reviews_path, local: true do |form| %>
   <p>
     <%= form.label :review_author %>
     <%= form.text_field :author %>
