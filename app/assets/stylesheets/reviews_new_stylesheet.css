@@ -1,0 +1,7 @@
+input[type ="radio"] {
+  display: none;
+}
+
+#review_rating_2 {
+  display: none;
+}

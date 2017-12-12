@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link type="text/css" rel="stylesheet" src="reviews_new_stylesheet.css">
+    <title>Post a Review</title>
+  </head>
+  <body>
+    <h1>Post a Review</h1>
+
+  <%= form_with scope: :review, url: reviews_path, local: true do |form| %>
+  <p>
+    <%= form.label :review_author %>
+    <%= form.text_field :author %>
+  </p>
+    <%= form.label :review_email %>
+    <%= form.email_field :email %>
+  <p>
+    <p>Review Rating</p>
+    <%= form.label "1" %>
+    <%= radio_button("review", "rating", 1) %>
+    <label for="review_rating_1" class="material-icons">star_border</label>
+    <%= form.label "2" %>
+    <%= radio_button("review", "rating", 2) %>
+    <label for="review_rating_2" class="material-icons">star_border</label>
+    <%= form.label "3" %>
+    <%= radio_button("review", "rating", 3) %>
+    <label for="review_rating_3" class="material-icons">star_border</label>
+    <%= form.label "4" %>
+    <%= radio_button("review", "rating", 4) %>
+    <label for="review_rating_4" class="material-icons">star_border</label>
+    <%= form.label "5" %>
+    <%= radio_button("review", "rating", 5) %>
+    <label for="review_rating_5" class="material-icons">star_border</label>
+  </p>
+  <p>
+    <%= form.label :comments %>
+  </p>
+  <p>
+    <%= form.text_area :comments %>
+  </p>
+  <p>
+    <%= form.submit 'Submit' %>
+  </p>
+  <% end %>
+  </body>
+</html>
