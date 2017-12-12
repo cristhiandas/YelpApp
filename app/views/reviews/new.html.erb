@@ -7,6 +7,26 @@
   <body>
     <h1>Post a Review</h1>
 
-
+  <%= form_with scope: :review, local: true do |form| %>
+  <p>
+    <%= form.label :review_author %>
+    <%= form.text_field :author %>
+  </p>
+    <%= form.label :review_email %>
+    <%= form.email_field :email %>
+  <p>
+    <p>Review Rating</p>
+    <%= form.label "1" %>
+    <%= radio_button("review", "rating", "1") %>
+    <%= form.label "2" %>
+    <%= radio_button("review", "rating", "2") %>
+    <%= form.label "3" %>
+    <%= radio_button("review", "rating", "3") %>
+    <%= form.label "4" %>
+    <%= radio_button("review", "rating", "4") %>
+    <%= form.label "5" %>
+    <%= radio_button("review", "rating", "5") %>
+  </p>
+  <% end %>
   </body>
 </html>
