@@ -8,14 +8,17 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    @restaurant = Restaurant.new
   end
 
   def create
-    # render plain: params[:restaurant].inspect
     @restaurant = Restaurant.new(restaurant_params)
 
-    @restaurant.save
-    redirect_to @restaurant
+    if @restaurant.save
+      redirect_to @restaurant
+    else
+      render 'new'
+    end
   end
 
   private
