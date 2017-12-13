@@ -20,7 +20,7 @@ RSpec.describe "restaurants/new.html.erb" do
     end
 
     it 'has a submit button' do
-      expect(page).to have_button(:value => 'Save Restaurant')
+      expect(page).to have_button(value: 'Submit')
     end
 
     it 'has a location field' do
