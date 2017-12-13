@@ -32,4 +32,37 @@ feature 'Openning the page' do
     click_button('Submit')
     expect(page).to have_content('Comment: I loved it!')
   end
+
+  scenario 'It displays the average ratings of restaurant' do
+    fill_in('review[author]', with: 'Cristhian')
+    fill_in('review[email]', with: 'cris@gmail.com')
+    choose(id: 'review_rating_5')
+    fill_in('review[comments]', with: 'I loved it!')
+    click_button('Submit')
+
+    fill_in('review[author]', with: 'Cristhian')
+    fill_in('review[email]', with: 'cris@gmail.com')
+    choose(id: 'review_rating_3')
+    fill_in('review[comments]', with: 'I loved it!')
+    click_button('Submit')
+
+    expect(page).to have_content('Average rating: 4.0')
+  end
+
+  scenario 'It displays the average ratings of restaurant as a float' do
+    fill_in('review[author]', with: 'Cristhian')
+    fill_in('review[email]', with: 'cris@gmail.com')
+    choose(id: 'review_rating_5')
+    fill_in('review[comments]', with: 'I loved it!')
+    click_button('Submit')
+
+    fill_in('review[author]', with: 'Cristhian')
+    fill_in('review[email]', with: 'cris@gmail.com')
+    choose(id: 'review_rating_2')
+    fill_in('review[comments]', with: 'I loved it!')
+    click_button('Submit')
+
+    expect(page).to have_content('Average rating: 3.5')
+  end
+
 end

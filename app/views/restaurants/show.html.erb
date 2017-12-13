@@ -67,7 +67,7 @@
 <% end %>
 
 <h2>Reviews</h2>
-<% p @restaurant.reviews %>
+Average rating: <%= @ratings %>
 <% @restaurant.reviews.each do |review| %>
 <% if review.id %>
 <div>
