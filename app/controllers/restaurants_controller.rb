@@ -7,6 +7,13 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @ratings = 0
+    @restaurant.reviews.each do |review|
+      @ratings += review.rating
+    end
+    if @ratings != 0
+    (@ratings /= @restaurant.reviews.length.to_f)
+    end
   end
 
   def new

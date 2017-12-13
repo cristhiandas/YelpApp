@@ -6,7 +6,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.integer :min_price
       t.integer :max_price
       t.text :description
-      t.text :category
+      t.string :category
 
       t.timestamps
     end

@@ -1,0 +1,35 @@
+<%= form_with(model: [ @restaurant, @restaurant.reviews.build ], local: true) do |form| %>
+<p>
+  <%= form.label :review_author %>
+  <%= form.text_field :author %>
+</p>
+  <%= form.label :review_email %>
+  <%= form.email_field :email %>
+<p>
+  <p>Review Rating</p>
+  <%= form.label "1" %>
+  <%= radio_button("review", "rating", 1) %>
+  <label for="review_rating_1" id="one_star" class="material-icons">star_border</label>
+  <%= form.label "2" %>
+  <%= radio_button("review", "rating", 2) %>
+  <label for="review_rating_2" class="material-icons">star_border</label>
+  <%= form.label "3" %>
+  <%= radio_button("review", "rating", 3) %>
+  <label for="review_rating_3" class="material-icons">star_border</label>
+  <%= form.label "4" %>
+  <%= radio_button("review", "rating", 4) %>
+  <label for="review_rating_4" class="material-icons">star_border</label>
+  <%= form.label "5" %>
+  <%= radio_button("review", "rating", 5) %>
+  <label for="review_rating_5" class="material-icons">star_border</label>
+</p>
+<p>
+  <%= form.label :comments %>
+</p>
+<p>
+  <%= form.text_area :comments %>
+</p>
+<p>
+  <%= form.submit 'Submit' %>
+</p>
+<% end %>

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171213142830) do
     t.integer "min_price"
     t.integer "max_price"
     t.text "description"
-    t.text "category"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,8 +31,10 @@ ActiveRecord::Schema.define(version: 20171213142830) do
     t.string "email"
     t.integer "rating"
     t.text "comments"
+    t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,4 +54,5 @@ ActiveRecord::Schema.define(version: 20171213142830) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "reviews", "restaurants"
 end
