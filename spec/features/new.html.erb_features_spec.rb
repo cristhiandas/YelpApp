@@ -1,9 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "restaurants/new.html.erb" do
+
   describe 'when opening the page' do
 
     before(:each) do
+      visit('/users/sign_up')
+      fill_in(id: 'user_email', with: 'tom@tom.tom')
+      fill_in(id: 'user_password', with: 'tom@tom.tom')
+      fill_in(id: 'user_password_confirmation', with: 'tom@tom.tom')
+      click_button('Sign up')
+      
       visit('/restaurants/new')
     end
 
