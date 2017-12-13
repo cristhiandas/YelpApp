@@ -66,5 +66,19 @@
 </p>
 <% end %>
 
+<h2>Reviews</h2>
+<% p @restaurant.reviews %>
+<% @restaurant.reviews.each do |review| %>
+<% if review.id %>
+<div>
+
+<p><strong>Written by: </strong><%= review.author %> on <%= review.created_at %></p>
+<p><strong>Rating: </strong><%= review.rating %></p>
+<p><strong>Comment: </strong><%= review.comments %></p>
+
+</div>
+<% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

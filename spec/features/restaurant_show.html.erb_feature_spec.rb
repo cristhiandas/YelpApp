@@ -23,4 +23,13 @@ feature 'Openning the page' do
     expect(page).to have_content('Review Rating')
     expect(page).to have_content('Comments')
   end
+
+  scenario 'It displays all of the reviews for the restaurant' do
+    fill_in('review[author]', with: 'Cristhian')
+    fill_in('review[email]', with: 'cris@gmail.com')
+    choose(id: 'review_rating_5')
+    fill_in('review[comments]', with: 'I loved it!')
+    click_button('Submit')
+    expect(page).to have_content('Comment: I loved it!')
+  end
 end
