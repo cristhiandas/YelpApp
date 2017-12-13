@@ -23,9 +23,11 @@
       <td><%= restaurant.category %></td>
       <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
       <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-      <td><%= link_to 'Destroy', restaurant_path(restaurant),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <td><%= if user_signed_in?
+                link_to 'Destroy', restaurant_path(restaurant),
+                method: :delete,
+                data: { confirm: 'Are you sure?' }
+              end %></td>
     </tr>
   <% end %>
 </table>
