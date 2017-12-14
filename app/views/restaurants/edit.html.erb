@@ -1,5 +1,7 @@
-<h1>Edit restaurant</h1>
+<div class='overlay'>
+  <h1>Edit restaurant</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Back', restaurant_path %>
+  <%= button_to 'Back', restaurant_path, method: :get %>
+</div>

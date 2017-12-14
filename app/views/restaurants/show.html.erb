@@ -36,8 +36,9 @@
     <h2>Reviews</h2>
     Average rating: <%= @ratings %>
     <%= render @restaurant.reviews %>
-
-    <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-    <%= link_to 'Back', restaurants_path %>
+    <div class ='buttons_inline'>
+      <%= button_to 'Edit Restaurant', edit_restaurant_path(@restaurant), method: :get %>
+      <%= button_to 'Back', restaurants_path, method: :get %>
+    </div>
   </div>
 </body>

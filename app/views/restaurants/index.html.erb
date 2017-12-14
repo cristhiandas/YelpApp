@@ -1,35 +1,37 @@
 <body>
-<h1>Add new restaurant</h1>
-<%= link_to 'New restaurant', new_restaurant_path %>
+  <div class='overlay'>
+    <h1>Add new restaurant</h1>
+    <%= button_to 'New restaurant', new_restaurant_path, method: :get%>
 
-<h1>Listing restaurants</h1>
+    <h1>Listing restaurants</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Location</th>
-    <th>Min Price</th>
-    <th>Max Price</th>
-    <th>Description</th>
-    <th>Category</th>
-  </tr>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Min Price</th>
+        <th>Max Price</th>
+        <th>Description</th>
+        <th>Category</th>
+      </tr>
 
-  <% @restaurant.each do |restaurant| %>
-    <tr>
-      <td><%= restaurant.name %></td>
-      <td><%= restaurant.location %></td>
-      <td><%= restaurant.min_price %></td>
-      <td><%= restaurant.max_price %></td>
-      <td><%= restaurant.description %></td>
-      <td><%= restaurant.category %></td>
-      <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
-      <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-      <td><%= if user_signed_in?
-                link_to 'Destroy', restaurant_path(restaurant),
-                method: :delete,
-                data: { confirm: 'Are you sure?' }
-              end %></td>
-    </tr>
-  <% end %>
-</table>
+      <% @restaurant.each do |restaurant| %>
+        <tr>
+          <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
+          <td><%= restaurant.location %></td>
+          <td><%= restaurant.min_price %></td>
+          <td><%= restaurant.max_price %></td>
+          <td><%= restaurant.description %></td>
+          <td><%= restaurant.category %></td>
+          <td><%= button_to 'Edit', edit_restaurant_path(restaurant),
+          method: :get %></td>
+          <td><%= if user_signed_in?
+                    button_to 'Destroy', restaurant_path(restaurant),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' }
+                  end %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </body>
