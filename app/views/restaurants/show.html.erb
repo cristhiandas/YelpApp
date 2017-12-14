@@ -7,35 +7,37 @@
 </head>
 
 <body>
-<p>
-  <strong>Restaurant Name:</strong>
-  <%= @restaurant.name %>
-</p>
+  <div class='overlay'>
+    <p>
+      <strong>Restaurant Name:</strong>
+      <%= @restaurant.name %>
+    </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @restaurant.location %>
-</p>
-<p>
-  <strong>Price range:</strong>
-  min: <%= @restaurant.min_price %> - max: <%= @restaurant.max_price %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @restaurant.description %>
-</p>
-<p>
-  <strong>Category:</strong>
-  <%= @restaurant.category %>
-</p>
+    <p>
+      <strong>Location:</strong>
+      <%= @restaurant.location %>
+    </p>
+    <p>
+      <strong>Price range:</strong>
+      min: <%= @restaurant.min_price %> - max: <%= @restaurant.max_price %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @restaurant.description %>
+    </p>
+    <p>
+      <strong>Category:</strong>
+      <%= @restaurant.category %>
+    </p>
 
-<h1>Leave a review</h1>
-<%= render 'reviews/form' %>
+    <h1>Leave a review</h1>
+    <%= render 'reviews/form' %>
 
-<h2>Reviews</h2>
-Average rating: <%= @ratings %>
-<%= render @restaurant.reviews %>
+    <h2>Reviews</h2>
+    Average rating: <%= @ratings %>
+    <%= render @restaurant.reviews %>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+    <%= link_to 'Back', restaurants_path %>
+  </div>
 </body>
