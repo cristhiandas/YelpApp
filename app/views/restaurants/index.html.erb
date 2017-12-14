@@ -22,7 +22,9 @@
       <td><%= restaurant.description %></td>
       <td><%= restaurant.category %></td>
       <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
-      <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+      <td><%= if user_signed_in?
+                link_to 'Edit', edit_restaurant_path(restaurant)
+              end %></td>
       <td><%= if user_signed_in?
                 link_to 'Destroy', restaurant_path(restaurant),
                 method: :delete,

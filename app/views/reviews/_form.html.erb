@@ -1,4 +1,7 @@
+
+<% if user_signed_in? %>
 <%= form_with(model: [ @restaurant, @restaurant.reviews.build ], local: true) do |form| %>
+<h3>Leave a review</h3>
 <p>
   <!-- <%= form.label :review_author %> -->
   <!-- <%= form.text_field :author %> -->
@@ -35,4 +38,5 @@
 <p>
   <%= form.submit 'Submit' %>
 </p>
+<% end %>
 <% end %>
