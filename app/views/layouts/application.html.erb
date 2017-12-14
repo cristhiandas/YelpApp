@@ -9,9 +9,25 @@
   </head>
 
   <body>
+    <div class='overlay'>
+
+      <% if user_signed_in?%>
+      <%= button_to 'Sign out', destroy_user_session_path,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+      <% else %>
+      <div class='buttons_inline'>
+        <%= button_to 'Sign in', new_user_session_path, method: :get %>
+        <%= button_to 'Sign up', new_user_registration_path, method: :get %>
+      </div>
+      <% end %>
+
     <%= yield %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+    </div>
   </body>
+
 </html>

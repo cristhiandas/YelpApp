@@ -80,6 +80,7 @@ input[type ="radio"] {
 }
 
 .buttons_inline{
+  -webkit-box-align:center;
   -webkit-box-pack:left;
   display:-webkit-box;
 }

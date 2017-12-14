@@ -3,9 +3,7 @@
 <body>
 
 <h1>Welcome to Yelp!</h1>
-<%= link_to 'List of Restaurants', controller: 'restaurants' %>
+<%= button_to 'List of Restaurants', restaurants_path, method: :get %>
 <br><br>
-<%= button_to 'Sign out', destroy_user_session_path,
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
+
 </body>
