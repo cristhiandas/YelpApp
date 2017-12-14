@@ -9,19 +9,19 @@
   <p>Review Rating</p>
   <%= form.label "1" %>
   <%= radio_button("review", "rating", 1) %>
-  <label for="review_rating_1" id="one_star" class="material-icons">star_border</label>
+  <label for="review_rating_1" id="star_1" class="material-icons">star_border</label>
   <%= form.label "2" %>
   <%= radio_button("review", "rating", 2) %>
-  <label for="review_rating_2" class="material-icons">star_border</label>
+  <label for="review_rating_2" id="star_2" class="material-icons">star_border</label>
   <%= form.label "3" %>
   <%= radio_button("review", "rating", 3) %>
-  <label for="review_rating_3" class="material-icons">star_border</label>
+  <label for="review_rating_3" id="star_3" class="material-icons">star_border</label>
   <%= form.label "4" %>
   <%= radio_button("review", "rating", 4) %>
-  <label for="review_rating_4" class="material-icons">star_border</label>
+  <label for="review_rating_4" id="star_4" class="material-icons">star_border</label>
   <%= form.label "5" %>
   <%= radio_button("review", "rating", 5) %>
-  <label for="review_rating_5" class="material-icons">star_border</label>
+  <label for="review_rating_5" id="star_5" class="material-icons">star_border</label>
 </p>
 <p>
   <%= form.label :comments %>
@@ -33,3 +33,25 @@
   <%= form.submit 'Submit' %>
 </p>
 <% end %>
+
+<script type="text/javascript">
+   (function () {
+     var allStars = []
+
+     for (i = 1; i <= 5; i++) {
+       var star = document.getElementById(`star_${i}`)
+       allStars.push(star)
+     }
+
+     allStars.forEach(function (star) {
+       star.addEventListener('click', function() {
+         allStars.forEach(function (unclickedStar) {
+           unclickedStar.innerText = 'star_border'
+           unclickedStar.style.color = 'black'
+         })
+         star.innerText = 'star'
+         star.style.color = 'gold'
+       })
+     })
+   })()
+ </script>
