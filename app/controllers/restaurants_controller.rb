@@ -28,8 +28,9 @@ class RestaurantsController < ApplicationController
 
   def create
     check_user_is_signed_in
+    p current_user.id
+    p restaurant_params
     @restaurant = Restaurant.new(restaurant_params)
-
     if @restaurant.save
       redirect_to @restaurant
     else
@@ -58,7 +59,7 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :location, :min_price, :max_price, :description, :category)
+    params.require(:restaurant).permit(:name, :location, :min_price, :max_price, :description, :category, :user_id)
   end
 
   def check_user_is_signed_in
