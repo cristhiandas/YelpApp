@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 
   def create
     check_user_is_signed_in
+    p params
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.create(review_params)
     redirect_to restaurant_path(@restaurant)
@@ -20,7 +21,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:author, :email, :rating, :comments)
+    params.require(:review).permit(:author, :email, :rating, :comments, :user_id)
   end
 
   def check_user_is_signed_in

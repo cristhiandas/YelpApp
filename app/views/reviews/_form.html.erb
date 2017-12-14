@@ -3,8 +3,9 @@
   <%= form.label :review_author %>
   <%= form.text_field :author %>
 </p>
-  <%= form.label :review_email %>
-  <%= form.email_field :email %>
+  <!-- <%= form.label :review_email %>
+  <%= form.email_field :email %> -->
+  <%= form.hidden_field :email, value: current_user.email %>
 <p>
   <p>Review Rating</p>
   <%= form.label "1" %>
@@ -29,6 +30,7 @@
 <p>
   <%= form.text_area :comments %>
 </p>
+<%= form.hidden_field :user_id, value: current_user.id %>
 <p>
   <%= form.submit 'Submit' %>
 </p>
