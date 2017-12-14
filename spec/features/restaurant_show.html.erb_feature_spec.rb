@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Openning the page' do
   before(:each) do
     visit('/users/sign_up')
+    fill_in(id: 'user_name', with: 'tom')
     fill_in(id: 'user_email', with: 'tom@tom.tom')
     fill_in(id: 'user_password', with: 'tom@tom.tom')
     fill_in(id: 'user_password_confirmation', with: 'tom@tom.tom')

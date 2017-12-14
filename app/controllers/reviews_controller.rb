@@ -11,8 +11,6 @@ class ReviewsController < ApplicationController
 
   def create
     check_user_is_signed_in
-    p current_user
-    p params
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.create(review_params)
     redirect_to restaurant_path(@restaurant)
