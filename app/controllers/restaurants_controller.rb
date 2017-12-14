@@ -28,8 +28,6 @@ class RestaurantsController < ApplicationController
 
   def create
     check_user_is_signed_in
-    p current_user.id
-    p restaurant_params
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       redirect_to @restaurant
@@ -50,7 +48,6 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    # check_user_is_signed_in
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
 
