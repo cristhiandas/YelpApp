@@ -14,7 +14,7 @@ feature 'Openning the page' do
     fill_in('restaurant[max_price]', with: '1')
     fill_in('restaurant[description]', with: 'Lewis')
     fill_in('restaurant[category]', with: 'Lewis')
-    click_button(:value => 'Save Restaurant')
+    click_button(:value => 'Submit')
   end
 
   scenario 'it shows the restaurant information' do
