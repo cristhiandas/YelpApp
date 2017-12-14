@@ -1,6 +1,11 @@
+<link rel="stylesheet" href="application.css">
+
+<body>
+
 <h1>Welcome to Yelp!</h1>
 <%= link_to 'List of Restaurants', controller: 'restaurants' %>
 <br><br>
 <%= button_to 'Sign out', destroy_user_session_path,
         method: :delete,
         data: { confirm: 'Are you sure?' } %>
+</body>
