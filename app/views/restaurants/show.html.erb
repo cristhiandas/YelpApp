@@ -27,9 +27,9 @@
   <strong>Category:</strong>
   <%= @restaurant.category %>
 </p>
-
+<% if !@user_left_review %>
 <%= render 'reviews/form' %>
-
+<% end %>
 <h2>Reviews</h2>
 Average rating: <%= @ratings %>
 <%= render @restaurant.reviews %>

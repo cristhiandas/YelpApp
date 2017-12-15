@@ -7,13 +7,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @ratings = 0
-    @restaurant.reviews.each do |review|
-      @ratings += review.rating
-    end
-    if @ratings != 0
-    (@ratings /= @restaurant.reviews.length.to_f)
-    end
+    set_average_rating
+    check_user_left_review
   end
 
   def new
@@ -29,22 +24,13 @@ class RestaurantsController < ApplicationController
   def create
     check_user_is_signed_in
     @restaurant = Restaurant.new(restaurant_params)
-    if @restaurant.save
-      redirect_to @restaurant
-    else
-      render 'new'
-    end
+    check_validations_new
   end
 
   def update
     check_user_is_signed_in
     @restaurant = Restaurant.find(params[:id])
-
-    if @restaurant.update(restaurant_params)
-      redirect_to @restaurant
-    else
-      render 'edit'
-    end
+    check_validations_edit
   end
 
   def destroy
@@ -61,5 +47,34 @@ class RestaurantsController < ApplicationController
 
   def check_user_is_signed_in
     redirect_to '/users/sign_in' unless user_signed_in?
+  end
+
+  def check_user_left_review
+    @user_left_review = false
+    @restaurant.reviews.each do |review|
+      @user_left_review = true  if review.user.id == current_user.id
+    end
+  end
+
+  def set_average_rating
+    @ratings = 0
+    @restaurant.reviews.each { |review| @ratings += review.rating }
+    (@ratings /= @restaurant.reviews.length.to_f) if @ratings != 0
+  end
+
+  def check_validations_edit
+    if @restaurant.update(restaurant_params)
+      redirect_to @restaurant
+    else
+      render 'edit'
+    end
+  end
+
+  def check_validations_new
+    if @restaurant.save
+      redirect_to @restaurant
+    else
+      render 'new'
+    end
   end
 end
