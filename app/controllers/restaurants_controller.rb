@@ -26,6 +26,9 @@ class RestaurantsController < ApplicationController
     check_user_is_signed_in
     @restaurant = Restaurant.new(restaurant_params)
     check_validations_new
+    # uploader = ImageUploader.new
+    # uploader.store!(my_file)
+    # uploader.retrieve_from_store!('my_file.png')
   end
 
   def update
@@ -42,9 +45,9 @@ class RestaurantsController < ApplicationController
   end
 
   private
-  
+
   def restaurant_params
-    params.require(:restaurant).permit(:name, :location, :min_price, :max_price, :description, :category, :user_id)
+    params.require(:restaurant).permit(:name, :location, :min_price, :max_price, :description, :category, :user_id, :image)
   end
 
   def check_user_is_signed_in

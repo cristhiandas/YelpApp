@@ -9,6 +9,10 @@
 <body>
   <div class="indent-left">
     <p>
+
+      <%= image_tag(@restaurant.image_url(:thumb).to_s) %>
+    </p>
+    <p>
       <strong>Restaurant Name:</strong>
       <%= @restaurant.name %>
     </p>

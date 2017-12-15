@@ -9,4 +9,7 @@ class Restaurant < ApplicationRecord
   validates :max_price, presence: true
   validates :description, presence: true
   validates :category, presence: true
+
+
+  mount_uploader :image, ImageUploader
 end
