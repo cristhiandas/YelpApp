@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     set_average_rating
     check_user_left_review
+    check_user_is_owner
   end
 
   def new
@@ -76,5 +77,10 @@ class RestaurantsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def check_user_is_owner
+    @user_is_owner = false
+    @user_is_owner = true if @restaurant.user_id == current_user.id
   end
 end

@@ -27,7 +27,7 @@
   <strong>Category:</strong>
   <%= @restaurant.category %>
 </p>
-<% if !@user_left_review %>
+<% if !@user_left_review && !@user_is_owner%>
 <%= render 'reviews/form' %>
 <% end %>
 <h2>Reviews</h2>
