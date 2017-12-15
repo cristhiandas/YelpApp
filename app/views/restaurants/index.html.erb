@@ -25,7 +25,7 @@
       <td><%= if user_signed_in? && current_user.id == restaurant.user_id
                 link_to 'Edit', edit_restaurant_path(restaurant)
               end %></td>
-      <td><%= if user_signed_in?
+      <td><%= if user_signed_in? && current_user.id == restaurant.user_id
                 link_to 'Destroy', restaurant_path(restaurant),
                 method: :delete,
                 data: { confirm: 'Are you sure?' }
