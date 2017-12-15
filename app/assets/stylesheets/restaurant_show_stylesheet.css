@@ -19,6 +19,10 @@ h1, form {
   margin-left: 2em;
 }
 
+.button_to {
+  margin-left: 1em;
+}
+
 th, td {
   padding-left: 1.5em;
   text-align: left;
