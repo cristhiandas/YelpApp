@@ -45,12 +45,12 @@ def sign_up_user2_visit_restaurant
   sign_out
   sign_up_user_2
   visit('/restaurants')
-  click_link('Show')
+  click_link('Pizza')
 end
 
 def sign_up_user3_visit_restaurant
   sign_out
   sign_up_user_3
   visit('/restaurants')
-  click_link('Show')
+  click_link('Pizza')
 end
