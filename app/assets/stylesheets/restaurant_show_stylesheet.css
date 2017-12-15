@@ -15,6 +15,15 @@ body {
   font-family: Impact, Charcoal, sans-serif;
 }
 
+h1, form {
+  margin-left: 2em;
+}
+
+th, td {
+  padding-left: 1.5em;
+  text-align: left;
+}
+
 .overlay {
   background-color: rgba(225, 225, 225, 0.45);
   width: 100%;
@@ -22,7 +31,7 @@ body {
   overflow-y: scroll;
 }
 
-h1, form {
+.indent-left {
   margin-left: 2em;
 }
 

@@ -4,7 +4,7 @@
 
     <h1>Listing restaurants</h1>
 
-    <table>
+    <table class="indent-left">
       <tr>
         <th>Name</th>
         <th>Location</th>
@@ -22,9 +22,9 @@
           <td><%= restaurant.max_price %></td>
           <td><%= restaurant.description %></td>
           <td><%= restaurant.category %></td>
-          <td><%= button_to 'Edit', edit_restaurant_path(restaurant),
+          <td style="padding-left: 0px;"><%= button_to 'Edit', edit_restaurant_path(restaurant),
           method: :get %></td>
-          <td><%= if user_signed_in?
+          <td style="padding-left: 0px;"><%= if user_signed_in?
                     button_to 'Destroy', restaurant_path(restaurant),
                     method: :delete,
                     data: { confirm: 'Are you sure?' }

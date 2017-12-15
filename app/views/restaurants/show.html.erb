@@ -7,6 +7,7 @@
 </head>
 
 <body>
+  <div class="indent-left">
     <p>
       <strong>Restaurant Name:</strong>
       <%= @restaurant.name %>
@@ -28,13 +29,16 @@
       <strong>Category:</strong>
       <%= @restaurant.category %>
     </p>
-
+  </div>
     <h1>Leave a review</h1>
     <%= render 'reviews/form' %>
 
-    <h2>Reviews</h2>
-    Average rating: <%= @ratings %>
-    <%= render @restaurant.reviews %>
+    <div class="indent-left">
+      <h2>Reviews</h2>
+      Average rating: <%= @ratings %>
+      <%= render @restaurant.reviews %>
+    </div>
+
     <div class ='buttons_inline'>
       <%= button_to 'Edit Restaurant', edit_restaurant_path(@restaurant), method: :get %>
       <%= button_to 'Back', restaurants_path, method: :get %>
