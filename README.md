@@ -17,14 +17,46 @@ to achieve this goal we:
 - Ruby version should be "2.4.1", run ```rvm install 2.4.1``` to get it, then ```rvm 2.4.1``` to use that ruby version.
 - Check that "postgresql" is installed. if not, follow the [official instructions](https://www.postgresql.org/download/) on how to install it.
 - Then install the bundler ```gem install bundler```, and install the gems on the "Gemfile" by running ```bundle install```.
-- in the command line type ```psql psotgres```, then ```create database yelp_test;``` you should see ```CREATE DATABASE``` as an output, now ```create database yelp_development;``` now close postgresql ```\q```
+
+
+#### Set up database
+
+- inside the ```config``` folder create a new ```database.yml``` file. then you need to add the following info on it:
+```
+default: &default
+ adapter: postgresql
+ encoding: unicode
+ pool: 5
+
+development:
+ <<: *default
+ database: yelp_development
+ username: your_user_name
+ password: ---
+
+
+test:
+ <<: *default
+ database: yelp_test
+ username: your_user_name
+ password: ---
+
+
+production:
+ <<: *default
+ database: yelp_production
+ username: your_user_name
+ password: ---
+```
+- run ```bin/rails db:create``` on the command line
+- Finally run ```bin/rails db:migrate``` on the command line
 
 #### To run tests
 - If you followed the previous steps ```bundle exec rspec``` should do the work
 
 #### To run the program
-- in the command line type ```rackup config.ru -p 2000```
-- go to your browser and type "http://localhost:2000/"
+- in the command line type ```bin/rails server```
+- go to your browser and type "http://localhost:3000/"
 
 ### Tech Stack
 - Ruby on Rails
